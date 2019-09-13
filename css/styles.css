@@ -58,7 +58,8 @@ header h1 {
 	padding: 0.5em;
 	margin: 0.3em;
 	color: #edeff7;
-	border: 3px solid white;
+	border: 2px solid rgba(237, 239, 247);
+	border: 2px solid rgba(237, 239, 247, 0.6);
 	border-radius: 0.2em;
 	overflow: auto;
 	overflow-y: auto;
@@ -86,7 +87,8 @@ header h1 {
 #input {
 	border: none;
 	outline: none;
-	border-bottom: 2px solid white;
+	border-bottom: 2px solid rgba(237, 239, 247);
+	border-bottom: 2px solid rgba(237, 239, 247, 0.4);
 	background: transparent;
 	margin-top: 2em;
 	color: #edeff7;
@@ -103,6 +105,10 @@ header h1 {
 	cursor: pointer;
 }
 
+.btn:hover {
+	color: #d9cf68;
+}
+
 .icon {
 	font-size: 1.0565rem;
 	margin: 0.2em;
@@ -113,3 +119,5 @@ header h1 {
 	font-size: 1.0625rem;
 	width: 25em;
 }
+
+/* Responsive media queries */
