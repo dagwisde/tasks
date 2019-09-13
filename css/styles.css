@@ -16,7 +16,7 @@ html {
 body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background: linear-gradient(#808ce8, #afb7f0)
+	background: linear-gradient(#6171e8, #99a5ff)
 }
 
 /* Header elements */
@@ -25,11 +25,10 @@ header {
 	justify-content: space-around;
 	align-items: center;
 	font-family: 'Muli', sans-serif;
-	/* background: linear-gradient(#4651a0, #476cba);*/
-	background: rgba(46, 60, 166, 0.7);
+	background: rgba(32, 47, 161, 0.7);
 	width: 100%;
 	height: 60px;
-	margin-bottom: 50px;
+	margin-bottom: 60px;
 	border-bottom-left-radius: 1em;
 	border-bottom-right-radius: 1em;
 	color: #edeff7;
@@ -45,6 +44,9 @@ header h1 {
 	width: 100vw;
 	height: 100vh;
 	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 /* List and items */
@@ -56,7 +58,11 @@ header h1 {
 	padding: 0.5em;
 	margin: 0.3em;
 	color: #edeff7;
-	border: 1px solid white;
+	border: 3px solid white;
+	border-radius: 0.2em;
+	overflow-y: scroll;
+	height: 50vh;
+	width: 85vw;
 }
 
 .item {
@@ -64,11 +70,26 @@ header h1 {
 	padding: 0.5em;
 	align-items: center;
 	border-bottom: 2px solid white;
+	margin: 0.2em;
+
 }
 
 /* Input */
 
-#input {}
+#input {
+	border: none;
+	outline: none;
+	border-bottom: 2px solid white;
+	background: transparent;
+	margin-top: 2em;
+	color: #edeff7;
+	width: 56vw;
+	font-size: 1.086rem;
+}
+
+::placeholder {
+	color: #edeff7;
+}
 
 /* Buttons and/or icons */
 .btn {
@@ -76,12 +97,12 @@ header h1 {
 }
 
 .icon {
-
+	font-size: 1.0565rem;
 	margin: 0.2em;
 	padding: 0.2em;
 }
 
 .text {
-	font-size: 18px;
+	font-size: 1.0625rem;
 	width: auto;
 }
