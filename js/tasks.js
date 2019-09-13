@@ -120,9 +120,9 @@ taskList.addEventListener('click', function (event) {
 
 	const elementOperation = element.attributes.op.value;
 
-	if (elementOperation === 'complete') {
+	if (elementOperation == 'complete') {
 		completeTask(element);
-	} else if (elementOperation === 'delete') {
+	} else if (elementOperation == 'delete') {
 		deleteTask(element);
 	}
 
