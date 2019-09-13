@@ -10,12 +10,13 @@
 body,
 html {
 	width: 100%;
-	height: 100%;
+	min-height: 100%;
 }
 
 body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	background: linear-gradient(#808ce8, #afb7f0)
 }
 
 /* Header elements */
@@ -24,7 +25,8 @@ header {
 	justify-content: space-around;
 	align-items: center;
 	font-family: 'Muli', sans-serif;
-	background: linear-gradient(#4651a0, #476cba);
+	/* background: linear-gradient(#4651a0, #476cba);*/
+	background: rgba(46, 60, 166, 0.7);
 	width: 100%;
 	height: 60px;
 	margin-bottom: 50px;
@@ -42,9 +44,44 @@ header h1 {
 .container {
 	width: 100vw;
 	height: 100vh;
+	font-family: 'Montserrat', sans-serif;
 }
 
-/* Buttons */
+/* List and items */
+
+#list {
+	list-style-type: none;
+	display: flex;
+	flex-direction: column;
+	padding: 0.5em;
+	margin: 0.3em;
+	color: #edeff7;
+	border: 1px solid white;
+}
+
+.item {
+	display: flex;
+	padding: 0.5em;
+	align-items: center;
+	border-bottom: 2px solid white;
+}
+
+/* Input */
+
+#input {}
+
+/* Buttons and/or icons */
 .btn {
 	cursor: pointer;
+}
+
+.icon {
+
+	margin: 0.2em;
+	padding: 0.2em;
+}
+
+.text {
+	font-size: 18px;
+	width: auto;
 }
