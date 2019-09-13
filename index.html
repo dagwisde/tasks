@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">5
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Task App</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/a06f8c8ab7.js" async></script>
+</head>
+
+<body>
+    <!-- Header elements -->
+    <header>
+        <h1><span><i class="fas fa-tasks"></i></span>Tasks</h1>
+        <div class="clear">
+            <i class="fas fa-sync-alt btn"></i>
+        </div>
+        <div id="date"></div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <div class="container">
+            <!-- Task list -->
+            <ul id="list">
+
+            </ul>
+            <!-- Input -->
+            <div class="add-task">
+                <input type="text" id="input" placeholder="Add a new task" aria-label="Add a new task" maxlength="30">
+            </div>
+        </div>
+    </main>
+<script src="./js/tasks.js"></script>
+</body>
+
+</html>
