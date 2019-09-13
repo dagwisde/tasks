@@ -40,7 +40,7 @@ if (data) {
 
 // Load to list on page
 function loadTasks(array) {
-	array.forEach(function(taskItem) {
+	array.forEach(function (taskItem) {
 		addTask(taskItem.name, taskItem.id, taskItem.done, taskItem.remove);
 	});
 }
@@ -67,7 +67,7 @@ function addTask(task, id, done, remove) {
 }
 
 // On pressing 'enter'
-document.addEventListener('keyup', function(event) {
+document.addEventListener('keyup', function (event) {
 	if (event.keyCode === 13) {
 		const task = input.value;
 
@@ -98,7 +98,7 @@ function completeTask(element) {
 	element.classList.toggle(unchecked);
 	element.parentNode.querySelector('.text').classList.toggle(line_through);
 
-	LIST[element.id].done = LIST[element.id].done ? false : true;
+	LIST.done = LIST.done ? false : true;
 }
 
 // Remove a task
@@ -109,13 +109,13 @@ function deleteTask(element) {
 }
 
 // Clear localStorage
-clear.addEventListener('click', function() {
+clear.addEventListener('click', function () {
 	localStorage.clear();
 	location.reload();
 });
 
 // Target list items for remove or complete
-taskList.addEventListener('click', function(event) {
+taskList.addEventListener('click', function (event) {
 	const element = event.target; // What was clicked
 
 	const elementOperation = element.attributes.op.value;
