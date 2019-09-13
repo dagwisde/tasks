@@ -4,6 +4,11 @@ const clear = document.querySelector('.clear');
 const taskList = document.querySelector('#task-list');
 const input = document.querySelector('#input');
 
+// Class toggle variables
+const checked = 'fas';
+const unchecked = 'far';
+const line_through = 'lineThrough';
+
 // Show today's date in header
 const dateOptions = {
 	month: 'long',
@@ -16,13 +21,29 @@ const today = new Date();
 dateElement.innerHTML = today.toLocaleDateString('en-US', dateOptions);
 
 // Storage variables
-let list = [],
-	id;
+let LIST, id;
 
-// Class toggle variables
-const checked = 'fas';
-const unchecked = 'far';
-const line_through = 'lineThrough';
+// Add task item to localStorage
+//localStorage.setItem('Task', JSON.stringify(list));
+// Get item from localStorage
+let data = localStorage.getItem('Task');
+
+// Check if data is empty
+if (data) {
+	LIST = JSON.parse(data);
+	id = LIST.length;
+	loadTasks(LIST); // Render list to page
+} else {
+	LIST = [];
+	id = 0;
+}
+
+// Load to list on page
+function loadTasks(array) {
+	array.forEach(function(taskItem) {
+		addTask(taskItem.name, taskItem.id, taskItem.done, taskItem.remove);
+	});
+}
 
 // Add task to list
 function addTask(task, id, done, remove) {
@@ -45,6 +66,7 @@ function addTask(task, id, done, remove) {
 	taskList.insertAdjacentHTML('beforeend', taskItem);
 }
 
+// On pressing 'enter'
 document.addEventListener('keyup', function(event) {
 	if (event.keyCode === 13) {
 		const task = input.value;
@@ -53,12 +75,15 @@ document.addEventListener('keyup', function(event) {
 		if (task) {
 			addTask(task, id, false, false);
 
-			list.push({
+			LIST.push({
 				name: task,
 				id: id,
 				done: false,
 				remove: false
 			});
+
+			// Add to localStorage
+			localStorage.setItem('Task', JSON.stringify(LIST));
 
 			id++;
 		}
@@ -73,18 +98,24 @@ function completeTask(element) {
 	element.classList.toggle(unchecked);
 	element.parentNode.querySelector('.text').classList.toggle(line_through);
 
-	list[element.id].done = list[element.id].done ? false : true;
+	LIST[element.id].done = LIST[element.id].done ? false : true;
 }
 
 // Remove a task
 function deleteTask(element) {
 	element.parentNode.parentNode.removeChild(element.parentNode);
 
-	list[element.id].remove = true;
+	LIST[element.id].remove = true;
 }
 
+// Clear localStorage
+clear.addEventListener('click', function() {
+	localStorage.clear();
+	location.reload();
+});
+
 // Target list items for remove or complete
-list.addEventListener('click', function(event) {
+taskList.addEventListener('click', function(event) {
 	const element = event.target; // What was clicked
 
 	const elementOperation = element.attributes.op.value;
@@ -94,4 +125,7 @@ list.addEventListener('click', function(event) {
 	} else if (elementOperation === 'delete') {
 		deleteTask(element);
 	}
+
+	// Add to localStorage
+	localStorage.setItem('Task', JSON.stringify(LIST));
 });
