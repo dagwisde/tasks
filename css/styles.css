@@ -111,7 +111,5 @@ header h1 {
 
 .text {
 	font-size: 1.0625rem;
-	width: auto;
+	width: 25em;
 }
-
-.fa-trash {}

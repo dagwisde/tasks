@@ -31,13 +31,13 @@ function addTask(task, id, done, remove) {
 		return;
 	}
 
-	const DONE = done ? checked : unchecked;
-	const LINE = done ? line_through : '';
+	const Done = done ? checked : unchecked;
+	const Line = done ? line_through : '';
 
 	const taskItem = `
     <li class="item">
-                    <i class=" ${DONE} fa-square icon btn fa-fw" id="${id} " op="complete"></i>
-                    <h3 class="text ${LINE}">${task}</h3>
+                    <i class=" ${Done} fa-square icon btn fa-fw" id="${id} " op="complete"></i>
+                    <h3 class="text ${Line}">${task}</h3>
                     <i class="fas fa-trash icon btn fa-fw" id="${id}" op="delete"></i>
                 </li> 
     `;
@@ -64,5 +64,34 @@ document.addEventListener('keyup', function(event) {
 		}
 
 		input.value = '';
+	}
+});
+
+// Complete a task
+function completeTask(element) {
+	element.classList.toggle(checked);
+	element.classList.toggle(unchecked);
+	element.parentNode.querySelector('.text').classList.toggle(line_through);
+
+	list[element.id].done = list[element.id].done ? false : true;
+}
+
+// Remove a task
+function deleteTask(element) {
+	element.parentNode.parentNode.removeChild(element.parentNode);
+
+	list[element.id].remove = true;
+}
+
+// Target list items for remove or complete
+list.addEventListener('click', function(event) {
+	const element = event.target; // What was clicked
+
+	const elementOperation = element.attributes.op.value;
+
+	if (elementOperation === 'complete') {
+		completeTask(element);
+	} else if (elementOperation === 'delete') {
+		deleteTask(element);
 	}
 });
