@@ -61,7 +61,7 @@ header h1 {
 	border: 3px solid white;
 	border-radius: 0.2em;
 	overflow: auto;
-	overflow-y: scroll;
+	overflow-y: auto;
 	height: 50vh;
 	width: 85vw;
 }
@@ -113,3 +113,5 @@ header h1 {
 	font-size: 1.0625rem;
 	width: auto;
 }
+
+.fa-trash {}
