@@ -23,8 +23,6 @@ dateElement.innerHTML = today.toLocaleDateString('en-US', dateOptions);
 // Storage variables
 let LIST, id;
 
-// Add task item to localStorage
-//localStorage.setItem('Task', JSON.stringify(list));
 // Get item from localStorage
 let data = localStorage.getItem('Task');
 
